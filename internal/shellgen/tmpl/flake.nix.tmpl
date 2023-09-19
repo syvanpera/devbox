@@ -42,6 +42,9 @@
       in
       {
         devShell = pkgs.mkShell {
+          {{if .ShellName}}
+          name = "{{.ShellName}}";
+          {{end}}
           buildInputs = with pkgs; [
             {{- range $_, $flake := .FlakeInputs }}
             {{- range $flake.BuildInputs }}

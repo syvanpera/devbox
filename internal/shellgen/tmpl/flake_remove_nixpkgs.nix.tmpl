@@ -35,6 +35,9 @@
       in
       {
         devShells.{{ .System }}.default = pkgs.mkShell {
+          {{if .ShellName}}
+          name = "{{.ShellName}}";
+          {{end}}
           buildInputs = [
             {{- range .Packages }}
             {{- if .IsInBinaryCache }}

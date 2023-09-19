@@ -45,6 +45,7 @@ type Config struct {
 }
 
 type shellConfig struct {
+	Name string `json:"name,omitempty"`
 	// InitHook contains commands that will run at shell startup.
 	InitHook *shellcmd.Commands            `json:"init_hook,omitempty"`
 	Scripts  map[string]*shellcmd.Commands `json:"scripts,omitempty"`

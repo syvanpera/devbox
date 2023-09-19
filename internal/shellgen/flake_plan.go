@@ -16,6 +16,7 @@ type flakePlan struct {
 	FlakeInputs []*flakeInput
 	Packages    []*devpkg.Package
 	System      string
+	ShellName   string
 }
 
 func newFlakePlan(ctx context.Context, devbox devboxer) (*flakePlan, error) {
@@ -63,5 +64,6 @@ func newFlakePlan(ctx context.Context, devbox devboxer) (*flakePlan, error) {
 		NixpkgsInfo: nixpkgsInfo,
 		Packages:    packages,
 		System:      nix.System(),
+		ShellName:   devbox.Config().Shell.Name,
 	}, nil
 }
